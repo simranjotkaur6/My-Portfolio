@@ -14,19 +14,22 @@ const Contact = () => {
       icon: 'fas fa-envelope',
       title: 'Email',
       value: 'simranjotkaur@tamu.edu',
-      link: 'mailto:simranjotkaur@tamu.edu'
+      link: 'mailto:simranjotkaur@tamu.edu',
+      color: 'from-red-500 to-pink-600'
     },
     {
-      icon: 'fab fa-linkedin',
+      icon: 'fab fa-linkedin-in',
       title: 'LinkedIn',
       value: 'linkedin.com/in/simran79',
-      link: 'https://www.linkedin.com/in/simran79/'
+      link: 'https://www.linkedin.com/in/simran79/',
+      color: 'from-blue-600 to-blue-700'
     },
     {
       icon: 'fab fa-github',
       title: 'GitHub',
       value: 'github.com/simranjotkaur6',
-      link: 'https://github.com/simranjotkaur6'
+      link: 'https://github.com/simranjotkaur6',
+      color: 'from-gray-700 to-gray-900'
     }
   ]
 
@@ -82,10 +85,10 @@ const Contact = () => {
               or just want to say hello. Feel free to reach out through any of these channels!
             </p>
             
-            <div className="space-y-4">
+            <div className="space-y-6">
               {contactInfo.map((info, index) => (
-                <div key={index} className="contact-item">
-                  <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center text-gray-600 text-xl flex-shrink-0">
+                <div key={index} className="contact-item flex items-center space-x-4 p-4 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-all duration-300 hover:border-gray-300">
+                  <div className={`w-14 h-14 bg-gradient-to-br ${info.color} rounded-xl flex items-center justify-center text-white text-2xl flex-shrink-0 shadow-lg`}>
                     <i className={info.icon}></i>
                   </div>
                   <div className="flex-1">
@@ -96,10 +99,13 @@ const Contact = () => {
                       href={info.link}
                       target={info.link.startsWith('http') ? '_blank' : '_self'}
                       rel={info.link.startsWith('http') ? 'noopener noreferrer' : ''}
-                      className="text-gray-600 hover:text-gray-800 transition-colors duration-200"
+                      className="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium"
                     >
                       {info.value}
                     </a>
+                  </div>
+                  <div className="text-gray-400 hover:text-gray-600 transition-colors duration-200">
+                    <i className="fas fa-external-link-alt text-sm"></i>
                   </div>
                 </div>
               ))}
